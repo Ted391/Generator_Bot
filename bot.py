@@ -12,7 +12,6 @@ bot = TeleBot(config.BOT_TOKEN, parse_mode='html') # Авторизация то
 
     # Меню start
 @bot.message_handler(commands=['start'])
-
 def Hello(message):
     bot.send_message(message.chat.id, f'👋 Привет, <b>{message.from_user.first_name}</b> 👋\n\n'
                                       f'Надеюсь, вам понравится работать со мной 😊\n\n'
@@ -20,13 +19,11 @@ def Hello(message):
                                       )    
     # Дополнительная информация
 @bot.message_handler(commands=['credits'])
-
 def Credits(message):
     bot.send_message(message.chat.id, '<Напишите о себе, боте или чём-нибудь ещё>')
 
     # Генератор паролей
 @bot.message_handler(commands=['generate'])
-
 def GenerateRequest(message):
     sent_msg = bot.send_message(message.chat.id, 
                                 '😁 Cупер😁 \nТеперь введите количество символов\n❗️<b>от 2 до 64</b>❗️')
@@ -49,7 +46,6 @@ def Generate(message):
     
     # Игра
 @bot.message_handler(content_types=['text'])
-
 def Game(message):
     if message.chat.type == 'private':
         

@@ -1,7 +1,6 @@
 import config  # импорт файла *config.py*
 import random
 from telebot import TeleBot, types
-from time import sleep
 
     # Переменные игровой статистики
 victories = 0
@@ -39,9 +38,7 @@ def Generate(message):
     else:
         bot.send_message(message.chat.id, '💬 Генерирую пароль... 💬')
         _password = "".join(random.sample(_characters, _length))
-        sleep(0.5)
         bot.send_message(message.chat.id, _password)
-        sleep(0.3)
         bot.send_message(message.chat.id, '✅ Генерация прошла успешно ✅')
     
     # Игра
@@ -71,13 +68,11 @@ def Game(message):
                             reply_markup = markup)
         
         elif message.text == bot_choose:
-            sleep(0.5)
             bot.send_message(message.chat.id, bot_msg)
             draws += 1
             bot.send_message(message.chat.id, draw_msg)
         
         elif message.text == 'Ножницы':
-            sleep(0.5)
             bot.send_message(message.chat.id, bot_msg)
             if bot_choose == items[2]:
                 victories +=1
@@ -87,7 +82,6 @@ def Game(message):
                 bot.send_message(message.chat.id, lose_msg)
 
         elif message.text == 'Камень':
-            sleep(0.5)
             bot.send_message(message.chat.id, bot_msg)
             if bot_choose == items[1]:
                 victories +=1
@@ -97,7 +91,6 @@ def Game(message):
                 bot.send_message(message.chat.id, lose_msg)
 
         elif message.text == 'Бумага':
-            sleep(0.5)
             bot.send_message(message.chat.id, bot_msg)
             if bot_choose == items[0]:
                 victories +=1
@@ -107,13 +100,11 @@ def Game(message):
                 bot.send_message(message.chat.id, lose_msg)
 
         elif message.text == 'Статистика':
-            sleep(0.5)
             bot.send_message(message.chat.id, f'Общая статистика:\n\n'
                                               f'<b>Победы:</b> {victories}\n'
                                               f'<b>Поражения:</b> {defeats}\n'
                                               f'<b>Ничьи:</b> {draws}')
         else:
-            sleep(0.5)
             bot.send_message(message.chat.id, 'Не понимаю, чего вы желаете😔')
     
     # RUN

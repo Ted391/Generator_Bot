@@ -1,4 +1,3 @@
-import config  # импорт файла *config.py*
 import random
 from telebot import TeleBot, types
 
@@ -7,7 +6,7 @@ victories = 0
 defeats = 0
 draws = 0
     
-bot = TeleBot(config.BOT_TOKEN, parse_mode='html') # Авторизация токена
+bot = TeleBot('Введите_сюда_токен_бота', parse_mode='html') # Авторизация токена
 
     # Меню start
 @bot.message_handler(commands=['start'])
